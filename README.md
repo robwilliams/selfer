@@ -1,5 +1,7 @@
 # Selfer
 
+[![Code Climate](https://codeclimate.com/github/robwilliams/selfer/badges/gpa.svg)](https://codeclimate.com/github/robwilliams/selfer) [![Build Status](https://travis-ci.org/robwilliams/selfer.svg)](https://travis-ci.org/robwilliams/selfer)
+
 Stops you having to write class methods that delegate to their respective
 instance method.
 
