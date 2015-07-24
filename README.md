@@ -1,6 +1,6 @@
 # Selfer
 
-[![Code Climate](https://codeclimate.com/github/robwilliams/selfer/badges/gpa.svg)](https://codeclimate.com/github/robwilliams/selfer) [![Build Status](https://travis-ci.org/robwilliams/selfer.svg)](https://travis-ci.org/robwilliams/selfer)
+[![Code Climate](https://codeclimate.com/github/robwilliams/selfer/badges/gpa.svg)](https://codeclimate.com/github/robwilliams/selfer) [![Build Status](https://travis-ci.org/robwilliams/selfer.svg)](https://travis-ci.org/robwilliams/selfer) [![Gem Version](https://badge.fury.io/rb/selfer.svg)](http://badge.fury.io/rb/selfer)
 
 Stops you having to write class methods that delegate to their respective
 instance method.
