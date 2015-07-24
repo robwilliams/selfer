@@ -46,8 +46,7 @@ After:
 class VisibleQuery
   extend Selfer
 
-  selfer :all
-  selfer :find
+  selfer :all, :find
 
   def initialize(relation)
     @relation = relation
