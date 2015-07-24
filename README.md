@@ -5,46 +5,65 @@
 Stops you having to write class methods that delegate to their respective
 instance method.
 
+### Basic Usage
+
+`VisibleQuery.find(Hotel.all)` looks nicer than 
+`VisibleQuery.new(Hotel.all).find` but the latter is easier to test. This gem 
+allows the best of both worlds.
+
 Before: 
 
 ```ruby
-class TreeFinder
-  def initialize(id, options={})
-    @id = id
-    @options = {}
+class VisibleQuery
+  def initialize(relation)
+    @relation = relation
   end
 
-  def find
-    # ...
+  def all
+    @relation.where(hidden: false)
   end
 
-  def self.find(id, options={})
-    new(id, options).find
+  def find(id)
+    all.find(id)
+  end
+
+  def self.all(relation)
+    new(relation).all
+  end
+
+  def self.find(relation, id)
+    new(relation).find(id)
   end
 end
 
-TreeFinder.find(1, readonly: true)
+VisibleQuery.all(Hotel.all)
+VisibleQuery.find(Hotel.all,1)
 ```
 
 After:
 
 ```ruby
-class TreeFinder
+class VisibleQuery
   extend Selfer
 
+  selfer :all
   selfer :find
 
-  def initialize(id, options={})
-    @id = id
-    @options = {}
+  def initialize(relation)
+    @relation = relation
   end
 
-  def find
-    # ...
+  def all
+    @relation.where(hidden: false)
+  end
+
+  def find(id)
+    all.find(id)
   end
 end
 
-TreeFinder.find(1, readonly: true)
+VisibleQuery.all(Hotel.all)
+VisibleQuery.find(Hotel.all,1)
 ```
 
 ## Installation
